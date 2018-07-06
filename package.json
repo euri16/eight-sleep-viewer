@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "chart.js": "^2.7.2",
+    "eslint": "^5.0.1",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-chartjs-2": "^2.7.2",
