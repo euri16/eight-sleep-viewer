@@ -1,0 +1,23 @@
+{
+  "name": "eight-sleep-viewer",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "chart.js": "^2.7.2",
+    "eslint": "^5.0.1",
+    "react": "^16.4.1",
+    "react-bootstrap": "^0.32.1",
+    "react-chartjs-2": "^2.7.2",
+    "react-dom": "^16.4.1",
+    "react-dropdown": "^1.5.0",
+    "react-rating": "^1.2.1",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "PORT=3003 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

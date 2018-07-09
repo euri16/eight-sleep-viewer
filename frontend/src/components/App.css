@@ -1,0 +1,71 @@
+#option-tabs .container {
+  width:97%;
+}
+
+:local(.tabContent) {
+  padding-top:15px;
+}
+:local(#tempDetails) {
+  font-size: 16px;
+}
+
+:local(.valueLabel) {
+  font-size: 11px;
+  margin-left: 3px;
+}
+
+:local(.detailTitle) {
+  color:rgb(206, 206, 206);
+  font-weight: bold
+
+}
+
+:local(.errorDetailValue) {
+  color:rgb(255, 113, 113)
+}
+
+:local(.warningDetailValue) {
+  color:rgb(254, 192, 77)
+}
+
+:local(.successDetailValue) {
+  color:rgb(0, 123, 255)
+}
+
+:local(.detailValue) {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+:local(.tooltipLabelProgressBar) {
+  margin-top:5px;
+}
+
+:local(.tooltipButton) {
+  font-size: 12px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 0px;
+  margin-left: 2px;
+  color: #b3102f;
+}
+
+.tooltip-label-icon {
+  font-size:25px;
+  margin-right: 10px;
+}
+
+#sleep-stages-details .tooltip-label-icon {
+  font-size:17px;
+}
+
+.tooltip-label-icon {
+  font-size:25px;
+  margin-right: 5px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

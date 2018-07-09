@@ -1,16 +1,31 @@
-version: '3.5'
+version: '2.1'
 
 services:
 
-  sample-app:
-    container_name: eight-sleep-viewer
-    build:
-      context: .
-      dockerfile: Dockerfile
+  sleep-data-service:
+    container_name: sleep-data-service
+    build: ./api/sleep-data/
     volumes:
-      - '.:/usr/src/app'
-      - '/usr/src/app/node_modules'
+      - './api/sleep-data:/usr/src/app'
+      - './api/sleep-data/package.json:/usr/src/package.json'
     ports:
-      - '3000:3000'
+      - '3000:3000' # expose ports - HOST:CONTAINER
     environment:
       - NODE_ENV=development
+      - TOKEN_SECRET=changeme
+
+  frontend:
+    container_name: eight-sleep-viewer
+    build: ./frontend/
+    volumes:
+      - './frontend:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '3003:3003'
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      sleep-data-service:
+        condition: service_started
+    links:
+      - sleep-data-service
