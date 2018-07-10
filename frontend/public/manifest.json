@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Eight Sleep Viewer",
+  "name": "Eight Sleep Data Viewer",
   "icons": [
     {
       "src": "favicon.ico",
