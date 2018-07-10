@@ -18,6 +18,13 @@ export function findStyle(value, maxValue) {
     return styles.successDetailValue
 }
 
+export function findScoreStyle(value, maxValue) {
+    if (between(value, 0, maxValue / 2)) return styles.errorDetailValue
+    if (between(value, maxValue / 2, maxValue / 1.5)) return styles.warningDetailValue
+    return styles.successDetailValue
+}
+
+
 export function findStyleWithMinValue(value, minValue) {
     if (value >= minValue) return styles.successDetailValue
     if (between(value, minValue / 2, minValue - .1)) return styles.warningDetailValue

@@ -2,11 +2,12 @@ import React, { PureComponent } from "react";
 import TabContent from '../TabContent'
 import CustomHorizontalBar from "../../charts/CustomHorizontalBar";
 import DetailLabel from "../../widgets/DetailLabel"
-import { calcPercentage, secondsToHours, findStyle, findStyleWithMinValue } from "../../../helpers/Helpers"
+import { calcPercentage, secondsToHours, findScoreStyle, findStyleWithMinValue } from "../../../helpers/Helpers"
 
 const MAX_SCORE = 5
 
 class SleepStages extends PureComponent {
+
     render() {
         const score = this.props.interval.score
         const formattedScore = this.formattedScore(score)
@@ -21,7 +22,7 @@ class SleepStages extends PureComponent {
                 popOverTitle="Sleep Score"
                 popOverText="It is at-a-glance feedback, which makes it easy to compare your sleep performance over time."
                 learnMoreUrl={process.env.REACT_APP_TNT_URL}
-                valueStyle={findStyle(formattedScore, MAX_SCORE)} /><br />
+                valueStyle={findScoreStyle(formattedScore, MAX_SCORE)} /><br />
 
             <DetailLabel text="HOURS OF SLEEP"
                 value={sleepHours}
@@ -47,11 +48,11 @@ class SleepStages extends PureComponent {
             <TabContent
                 left={<CustomHorizontalBar labels={Array.from(this.props.interval.sleepInfo.keys())}
                     data={Array.from(this.props.interval.sleepInfo.values())} />}
-                right={details}
-                smLeftWidth={8}
-                smRightWidth={4}
-                mdLeftWidth={8}
-                mdRightWidth={4} />
+                    right={details}
+                    smLeftWidth={8}
+                    smRightWidth={4}
+                    mdLeftWidth={8}
+                    mdRightWidth={4} />
         )
     }
 

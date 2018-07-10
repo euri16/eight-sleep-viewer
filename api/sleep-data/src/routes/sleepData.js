@@ -12,7 +12,7 @@ router.get('/users', (req, res) => {
     status: 'success',
     users: [
       {
-        name: 'Sasha Elami',
+        name: 'Sasha Eslami',
         id: '19326q',
       },
       {

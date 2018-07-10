@@ -14,10 +14,8 @@ class HttpFetcher extends React.Component {
 
     componentDidMount() {
         this.setState({ isLoading: true });
-
         const success = (data) => this.setState({ data: data, isLoading: false })
         const error = (error) => this.setState({ error, isLoading: false })
-
         performHttpCall(this.props.url, "GET", success, error)
     }
 

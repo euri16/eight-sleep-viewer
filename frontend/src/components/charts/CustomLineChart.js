@@ -1,18 +1,21 @@
 import React, { PureComponent } from "react";
-import { Line} from 'react-chartjs-2'
+import { Line } from 'react-chartjs-2'
 
 class CustomLineChart extends PureComponent {
     render() {
         const labelSuffix = this.props.labelSuffix
-        var highestItemsAmount = Math.max.apply(Math, this.props.datasets.map(function(o){return o.length;}))
+        var highestItemsAmount = Math.max.apply(Math, this.props.datasets.map(function (o) { return o.length; }))
         var data = {
-            labels: Array.apply(null, {length: highestItemsAmount}).map(Number.call, Number),
+            labels: Array.apply(null, { length: highestItemsAmount }).map(Number.call, Number),
             datasets: []
         };
 
-        this.props.datasets.forEach(element => {
-           data.datasets.push ({
-                fillColor: "rgba(151,187,205,0.2)",
+        this.props.datasets.forEach((element, ix) => {
+            data.datasets.push({
+                label: ix,
+                key: ix,
+                backgroundColor: ix === 0 ? "rgba(255, 113, 113,0.3)" : 'rgba(0, 123, 255,0.3)',
+                fillColor: "rgba(255,76,85,0.7)",
                 strokeColor: "rgba(151,187,205,1)",
                 pointColor: "rgba(151,187,205,1)",
                 pointStrokeColor: "#fff",
@@ -31,7 +34,7 @@ class CustomLineChart extends PureComponent {
                 yAxes: [{
                     ticks: {
                         stepSize: this.props.stepSize,
-                        callback: function(value, index, values) {
+                        callback: function (value, index, values) {
                             return value + labelSuffix;
                         }
                     },

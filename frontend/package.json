@@ -6,13 +6,15 @@
     "bootstrap": "^3.3.7",
     "chart.js": "^2.7.2",
     "eslint": "^5.0.1",
+    "moment": "^2.22.2",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-chartjs-2": "^2.7.2",
     "react-dom": "^16.4.1",
     "react-dropdown": "^1.5.0",
     "react-rating": "^1.2.1",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "react-spinkit": "^3.0.0"
   },
   "scripts": {
     "start": "PORT=3003 react-scripts start",

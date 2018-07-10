@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Popover, OverlayTrigger, Glyphicon, Button } from 'react-bootstrap'
+import { Popover, OverlayTrigger, Button } from 'react-bootstrap'
 import styles from '../App.css';
 
 class DetailLabel extends PureComponent {
@@ -22,10 +22,10 @@ class DetailLabel extends PureComponent {
                         placement="bottom"
                         overlay={popover}>
                         <Button className={styles.tooltipButton} bsSize="small">
-                            <Glyphicon glyph="question-sign" />
+                            <img src={process.env.PUBLIC_URL + '/img/question_mark.png'} alt="logo" />
                         </Button>
                     </OverlayTrigger>
-                </span><br/>
+                </span><br />
                 <span className={`${styles.detailValue} ${this.props.valueStyle || styles.successDetailValue}`}>{this.props.value}</span>
                 <span className={styles.valueLabel}>{this.props.valueLabel}</span>
             </div>

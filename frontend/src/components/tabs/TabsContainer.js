@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Tabs, Tab } from 'react-bootstrap';
+import { Row, Col, Nav, NavItem, Tab } from 'react-bootstrap';
 import SleepStages from '../tabs/Sleep/SleepStages'
 import Temperature from "./Temperature/Temperature";
 import Health from "./Health/Health";
@@ -14,29 +14,41 @@ class TabsContainer extends PureComponent {
         const interval = this.props.interval
         interval.tntAmount = this.tossAndTurnsAmount(interval.timeseries.tnt)
         interval.sleepInfo = this.sleepInfo(interval.stages)
-        
-        return (
-            <Tabs defaultActiveKey={1} id="option-tabs">
-                <Tab eventKey={1} title="Your Sleep">
-                    <SleepStages interval={interval}/>
-                </Tab>
 
-                <Tab eventKey={2} title="Temperature">
-                    <Temperature roomTemp={interval.timeseries.tempRoomC} bedTemp={interval.timeseries.tempBedC} />
-                </Tab>
-                <Tab eventKey={3} title="Health">
-                    <Health respiratoryRate={interval.timeseries.respiratoryRate} heartRate={interval.timeseries.heartRate} />
-                </Tab>
-            </Tabs>
+        return (
+            <Tab.Container id="option-tabs" defaultActiveKey={1}>
+                <Row className="clearfix">
+                    <Col id="sleep-tabs" sm={12}>
+                        <Nav bsStyle="pills">
+                            <NavItem eventKey={1}>Sleep Quality</NavItem>
+                            <NavItem eventKey={2}>Temperature</NavItem>
+                            <NavItem eventKey={3}>Health</NavItem>
+                        </Nav>
+                    </Col>
+                    <Col sm={12}>
+                        <Tab.Content animation>
+                            <Tab.Pane eventKey={1}>
+                                <SleepStages interval={interval} />
+                            </Tab.Pane>
+                            <Tab.Pane eventKey={2}>
+                                <Temperature roomTemp={interval.timeseries.tempRoomC} bedTemp={interval.timeseries.tempBedC} />
+                            </Tab.Pane>
+                            <Tab.Pane eventKey={3}>
+                                <Health respiratoryRate={interval.timeseries.respiratoryRate} heartRate={interval.timeseries.heartRate} />
+                            </Tab.Pane>
+                        </Tab.Content>
+                    </Col>
+                </Row>
+            </Tab.Container>
         )
     }
-    
+
     tossAndTurnsAmount(tossAndTurns) {
         return tossAndTurns.reduce((prev, next) => prev + next[1], 0)
     }
 
     filterAndSumSleepSeconds(stages, currentStage) {
-        return stages.filter(({stage}) => stage === currentStage)
+        return stages.filter(({ stage }) => stage === currentStage)
             .reduce((prev, next) => prev + parseInt(next.duration, 10), 0)
     }
 
