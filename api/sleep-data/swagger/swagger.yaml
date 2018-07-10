@@ -1,0 +1,47 @@
+---
+swagger: "2.0"
+info:
+  description: "Just a simple example"
+  version: "1.0.0"
+  title: "Sleep Data API"
+host: "localhost:3000"
+basePath: "/sleepInfo"
+schemes:
+  - "http"
+produces:
+  - "text/html"
+  - "application/json"
+paths:
+  /ping:
+    get:
+      summary: Performs a sanity check
+      description: Just a test
+      responses:
+        200:
+          description: just a sanity check
+  /users:
+    get:
+      summary: Returns the existing users
+      description: It gathers and returns all users.
+      responses:
+        200:
+          description: returns a list
+  /user/{userId}:
+    get:
+      summary: Returns the user's sleep data by its Id
+      description: Returns a user complete sleep data including all intervals using the user id, which in this case is the Id of the file.
+      parameters:
+        - in: path
+          name: userId
+          type: string
+          required: true
+          description: Id of the file which works as the Id of the user for this purpose
+      produces:
+        - application/json 
+      responses:
+        '200':
+          description: ok
+        '400':
+          description: bad request; typically the id is wrong.
+        '500':
+          description: Unexpected error.

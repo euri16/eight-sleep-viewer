@@ -38,6 +38,15 @@ http://localhost:3000/
 
 You don't need to perform any operation in order to make them work together.
 
+
+## API documentation
+
+Along with the API and the web service once deploying the project, a documentation module will be deployed too. It contains the description of the API with the ability to easily test it to see the response. You can access the documentation going to:
+
+````
+http://localhost:3004/docs/
+````
+
 ## Running the tests
 
 //TODO (create more tests)

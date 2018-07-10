@@ -29,3 +29,19 @@ services:
         condition: service_started
     links:
       - sleep-data-service
+
+  swagger:
+    container_name: swagger
+    build: ./api/sleep-data/swagger/
+    volumes:
+      - './api/sleep-data/swagger:/usr/src/app'
+      - '/usr/src/app/node_modules'
+    ports:
+      - '3004:3004' # expose ports - HOST:CONTAINER
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      sleep-data-service:
+        condition: service_started
+    links:
+      - sleep-data-service
